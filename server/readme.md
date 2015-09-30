@@ -1,1 +1,0 @@
-# Smartvalet Server Side
