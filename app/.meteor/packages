@@ -16,7 +16,6 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-insecure                # Allow all DB writes from clients (for prototyping)
 iron:router
 accounts-facebook
 accounts-password
@@ -30,3 +29,14 @@ meteoric:ionic
 sanjo:jasmine
 velocity:html-reporter
 velocity:console-reporter
+aldeed:collection2
+twbs:bootstrap
+mrt:nprogress
+service-configuration
+aldeed:delete-button
+meteoric:autoform-ionic
+useraccounts:ionic
+useraccounts:iron-routing
+dburles:google-maps
+mdg:geolocation
+ground:db

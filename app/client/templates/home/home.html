@@ -1,5 +1,25 @@
 <template name="Home">
-  <div class="home">
-    <h1>{{> loginButtons}}</h1>
-  </div>
+    {{#contentFor "headerButtonLeft"}}
+        <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+            {{#if isAndroid}}
+                {{> ionIcon icon='android-more-vertical'}}
+            {{else}}
+                {{> ionIcon icon='navicon'}}
+            {{/if}}
+        </button>
+    {{/contentFor}}
+    {{#contentFor "headerTitle"}}
+        <h1 class="title">Smart Valet</h1>
+    {{/contentFor}}
+    {{#ionView}}
+        {{#ionContent}}
+            <div class="map-container">
+                {{#unless geolocationError}}
+                    {{> googleMap name="map" options=mapOptions}}
+                {{else}}
+                    Geolocation failed: {{geolocationError}}
+                {{/unless}}
+            </div>
+        {{/ionContent}}
+    {{/ionView}}
 </template>

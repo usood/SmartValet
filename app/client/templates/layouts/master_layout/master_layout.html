@@ -1,3 +1,52 @@
 <template name="MasterLayout">
-    {{> yield}}
+    {{#ionBody}}
+
+        {{#ionSideMenuContainer side="left"}}
+
+            {{#ionSideMenus}}
+
+                {{#ionSideMenu}}
+                    <div class="bar bar-header bar-dark">
+                        <img src="{{user.avatarUrl}}">
+                        {{user.name.first}} {{user.name.last}}
+                    </div>
+                    <div class="content has-header">
+                        <div class="list">
+                            <div class="item item-icon-left" data-ion-menu-close>
+                                {{> ionIcon icon="home"}} Home
+                            </div>
+                            <div class="item item-icon-left" data-ion-menu-close>
+                                {{> ionIcon icon="man"}} Profile
+                            </div>
+                            <div class="item item-icon-left" data-ion-menu-close>
+                                {{> ionIcon icon="clock"}} History
+                            </div>
+                            <div class="item item-icon-left" data-ion-menu-close>
+                                {{> ionIcon icon="icecream"}} Deals
+                            </div>
+                            <div class="item item-icon-left" data-ion-menu-close>
+                                {{> ionIcon icon="help"}} Help
+                            </div>
+                            <div class="item item-icon-left" data-ion-menu-close>
+                                {{> ionIcon icon="android-car"}} About Us
+                            </div>
+                        </div>
+                    </div>
+                {{/ionSideMenu}}
+
+            {{/ionSideMenus}}
+
+            {{#ionSideMenuContent}}
+
+                {{> ionNavBar class="bar-positive"}}
+
+                {{#ionNavView}}
+                    {{> yield}}
+                {{/ionNavView}}
+
+            {{/ionSideMenuContent}}
+
+        {{/ionSideMenuContainer}}
+
+    {{/ionBody}}
 </template>

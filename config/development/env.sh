@@ -6,4 +6,8 @@
 # export MONGO_URL="mongodb://localhost:27017/myapp-development"
 # export ROOT_URL="http://localhost:3000"
 
-export SAMPLE_VARIABLE="somevalue"
+export ACCOUNTS_FACEBOOK_ID="152475115097191"
+export ACCOUNTS_FACEBOOK_SECRET="04fc386da1c503aae326aa946a162485"
+
+export ACCOUNTS_TWITTER_ID="ev8MeiuRJii7GTC7xkUGhVuRR"
+export ACCOUNTS_TWITTER_SECRET="6USazj9QXAFYqOsQiYlBGo1U6yJy4rfQsEbSiqbmb7Mvx6Txcc"

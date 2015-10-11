@@ -1,6 +1,3 @@
-
-
-
-Meteor.publish('todos', function () {
-  return Todos.find();
+Meteor.publish('cars', function () {
+  return Cars.find();
 });
