@@ -1,9 +1,5 @@
 Router.configure({
-  layoutTemplate: 'MasterLayout',
-  yieldTemplates: {
-    myNav: {to: 'nav'},
-    myFooter: {to: 'footer'},
-  },
+    layoutTemplate: 'MasterLayout',
   loadingTemplate: 'Loading',
   notFoundTemplate: 'NotFound'
 });
@@ -12,24 +8,26 @@ AccountsTemplates.configure({
   defaultLayout: 'MasterLayout',
 });
 
-AccountsTemplates.configureRoute('signIn', {
-  name: 'signin',
-  path: '/login',
-  template: 'login',
-  layoutTemplate: 'myLayout',
-  redirect: function(){
-    var user = Meteor.user();
-    if (user)
-      Router.go('/user/' + user._id);
+Router.route('/', function () {
+    this.render('Home');
+    this.layout(Meteor.user() ? 'MainLayout' : 'MasterLayout');
+});
+
+Router.route('/profile/', {
+    name: 'profileEmpty',
+    template: 'profile',
+    controller: 'ProfileController',
+    onBeforeAction: function () {
+        AntiModals.overlay('profileModal');
   }
 });
 
-
-Router.route('/', {
-  name: 'home',
-  controller: 'HomeController',
-  action: 'action',
-  where: 'client'
+Router.route('/profile/:username', {
+    name: 'profile',
+    controller: 'ProfileController',
+    onBeforeAction: function () {
+        AntiModals.overlay('profileModal');
+    }
 });
 
 Router.route('/cars', {

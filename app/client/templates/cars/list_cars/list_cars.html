@@ -1,0 +1,36 @@
+<template name="ListCars">
+    {{#contentFor "headerTitle"}}
+        <h1 class="title">My Cars</h1>
+    {{/contentFor}}
+
+    {{#contentFor "headerButtonRight"}}
+        <button class="button button-clear" data-ion-modal="_carNew">{{> ionIcon icon="ios-plus-empty"}}</button>
+    {{/contentFor}}
+    {{#ionView}}
+        {{#ionContent}}
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Damages</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each cars}}
+                    <tr>
+                        <td>{{brand}}</td>
+                        <td>{{model}}</td>
+                        <td>{{color}}</td>
+                        <td>{{damages}}</td>
+                        <td>{{#linkTo route='editCar'}}<span class="glyphicon glyphicon-edit"
+                                                             aria-hidden="true"></span>{{/linkTo}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/ionContent}}
+    {{/ionView}}
+</template>

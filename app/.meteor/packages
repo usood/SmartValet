@@ -26,9 +26,6 @@ fourseven:scss@2.0.0
 meteoric:ionic-sass
 meteoric:ionicons-sass
 meteoric:ionic
-sanjo:jasmine
-velocity:html-reporter
-velocity:console-reporter
 aldeed:collection2
 twbs:bootstrap
 mrt:nprogress

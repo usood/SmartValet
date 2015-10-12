@@ -1,11 +1,12 @@
 Meteor.startup(function () {
 });
 
+
 ServiceConfiguration.configurations.upsert(
     { service: "facebook" },
     {
         $set: {
-            clientId: process.env['ACCOUNTS_FACEBOOK_ID'],
+            appId: process.env['ACCOUNTS_FACEBOOK_ID'],
             loginStyle: "popup",
             secret: process.env['ACCOUNTS_FACEBOOK_SECRET']
         }
