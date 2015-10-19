@@ -1,7 +1,16 @@
 <template name="UserProfile">
+    {{#contentFor "headerButtonLeft"}}
+        <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+            {{#if isAndroid}}
+                {{> ionIcon icon='android-more-vertical'}}
+            {{else}}
+                {{> ionIcon icon='navicon'}}
+            {{/if}}
+        </button>
+    {{/contentFor}}
     {{#if currentUser}}
         {{#contentFor "headerButtonRight"}}
-            <button class="button button-clear pull-right button-positive" data-ion-modal="settings">
+            <button class="button button-clear pull-right button-dark" data-ion-modal="settings">
                 {{> ionIcon icon='ios-gear-outline'}}
             </button>
         {{/contentFor}}
@@ -10,4 +19,17 @@
     {{#contentFor "headerTitle"}}
         <h1 class="title">Profile</h1>
     {{/contentFor}}
+    {{#ionView}}
+        {{#ionContent}}
+            {{#with user}}
+                {{> ProfileHeader}}
+            {{else}}
+                <div class="empty-view">
+                    {{> ionIcon icon="ios-person"}}
+                    No profile yet!
+                </div>
+            {{/with}}
+        {{/ionContent}}
+    {{/ionView}}
 </template>
+

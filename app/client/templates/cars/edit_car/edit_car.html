@@ -1,5 +1,17 @@
 <template name="EditCar">
-    <h1>Edit</h1>
-    {{> quickForm collection="Cars" doc=this id="editCarForm" type="update" buttonContent="Update"}}
-    {{> quickRemoveButton collection="Cars" _id=this._id beforeRemove=beforeRemove class="btn btn-danger"}}
+    {{#ionModal customTemplate=true}}
+        {{# autoForm collection="Cars" id="cars-edit-form" type="update"}}
+            <div class="bar bar-header bar-stable">
+                <button data-dismiss="modal" type="button" class="button button-clear">Cancel</button>
+                <h2 class="title">Edit Car</h2>
+                <button type="submit" class="button button-positive button-clear">Save</button>
+            </div>
+            <div class="content has-header overflow-scroll">
+                {{> afQuickField name="brand"}}
+                {{> afQuickField name="model"}}
+                {{> afQuickField name="color"}}
+            </div>
+            {{> quickRemoveButton collection="Cars" _id=this._id beforeRemove=beforeRemove class="btn btn-danger"}}
+        {{/autoForm}}
+    {{/ionModal}}
 </template>

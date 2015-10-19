@@ -3,6 +3,15 @@
 /*****************************************************************************/
 Template.EditCar.events({});
 
+AutoForm.hooks({
+    'cars-edit-form': {
+        onSuccess: function (operation, result, template) {
+            IonModal.close();
+            IonKeyboard.close();
+            Router.go('carsList');
+        }
+    }
+});
 /*****************************************************************************/
 /* EditCar: Helpers */
 /*****************************************************************************/

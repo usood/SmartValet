@@ -46,7 +46,7 @@ ProfileController = RouteController.extend({
     //  action: 'myActionFunction'
 
     action: function () {
-        this.render();
+        this.render('UserProfile');
     },
     onAfterAction: function () {
     },

@@ -1,21 +1,21 @@
 /*****************************************************************************/
 /* LoginMobile: Event Handlers */
 /*****************************************************************************/
-Template.LoginMobile.events({});
+Template.Login.events({});
 
 /*****************************************************************************/
 /* LoginMobile: Helpers */
 /*****************************************************************************/
-Template.LoginMobile.helpers({});
+Template.Login.helpers({});
 
 /*****************************************************************************/
 /* LoginMobile: Lifecycle Hooks */
 /*****************************************************************************/
-Template.LoginMobile.onCreated(function () {
+Template.Login.onCreated(function () {
 });
 
-Template.LoginMobile.onRendered(function () {
+Template.Login.onRendered(function () {
 });
 
-Template.LoginMobile.onDestroyed(function () {
+Template.Login.onDestroyed(function () {
 });

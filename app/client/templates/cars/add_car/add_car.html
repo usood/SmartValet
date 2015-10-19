@@ -1,6 +1,16 @@
 <template name="AddCar">
-    <div class="add-car">
-        <h1>Add New Car</h1>
-        {{> quickForm collection="Cars" id="insertCarForm" type="insert" buttonContent="Add"}}
-    </div>
+    {{#ionModal customTemplate=true}}
+        {{# autoForm collection="Cars" id="cars-new-form" type="insert"}}
+            <div class="bar bar-header bar-stable">
+                <button data-dismiss="modal" type="button" class="button button-clear">Cancel</button>
+                <h2 class="title">New Car</h2>
+                <button type="submit" class="button button-positive button-clear">Add</button>
+            </div>
+            <div class="content has-header overflow-scroll">
+                {{> afQuickField name="brand"}}
+                {{> afQuickField name="model"}}
+                {{> afQuickField name="color"}}
+            </div>
+        {{/autoForm}}
+    {{/ionModal}}
 </template>

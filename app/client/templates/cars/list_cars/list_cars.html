@@ -1,10 +1,19 @@
 <template name="ListCars">
+    {{#contentFor "headerButtonLeft"}}
+        <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+            {{#if isAndroid}}
+                {{> ionIcon icon='android-more-vertical'}}
+            {{else}}
+                {{> ionIcon icon='navicon'}}
+            {{/if}}
+        </button>
+    {{/contentFor}}
     {{#contentFor "headerTitle"}}
         <h1 class="title">My Cars</h1>
     {{/contentFor}}
 
     {{#contentFor "headerButtonRight"}}
-        <button class="button button-clear" data-ion-modal="_carNew">{{> ionIcon icon="ios-plus-empty"}}</button>
+        <button class="button button-clear" data-ion-modal="AddCar">{{> ionIcon icon="ios-plus-empty"}}</button>
     {{/contentFor}}
     {{#ionView}}
         {{#ionContent}}

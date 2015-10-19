@@ -1,4 +1,4 @@
-<template name="MainLayout">
+<template name="LayoutSidebar">
     {{#ionBody}}
         {{#ionSideMenuContainer side="left"}}
 
@@ -11,24 +11,24 @@
                     </div>
                     <div class="content has-header">
                         <div class="list">
-                            <div class="item item-icon-left" data-ion-menu-close>
+                            <a class="item item-icon-left" data-action="home" data-ion-menu-close>
                                 {{> ionIcon icon="home"}} Home
-                            </div>
-                            <div class="item item-icon-left" data-ion-menu-close>
+                            </a>
+                            <a class="item item-icon-left" data-action="profile" data-ion-menu-close>
                                 {{> ionIcon icon="man"}} Profile
-                            </div>
-                            <div class="item item-icon-left" data-ion-menu-close>
+                            </a>
+                            <a class="item item-icon-left" data-action="history" data-ion-menu-close>
                                 {{> ionIcon icon="clock"}} History
-                            </div>
-                            <div class="item item-icon-left" data-ion-menu-close>
+                            </a>
+                            <a class="item item-icon-left" data-action="deals" data-ion-menu-close>
                                 {{> ionIcon icon="icecream"}} Deals
-                            </div>
-                            <div class="item item-icon-left" data-ion-menu-close>
+                            </a>
+                            <a class="item item-icon-left" data-action="help" data-ion-menu-close>
                                 {{> ionIcon icon="help"}} Help
-                            </div>
-                            <div class="item item-icon-left" data-ion-menu-close>
+                            </a>
+                            <a class="item item-icon-left" data-action="about-us" data-ion-menu-close>
                                 {{> ionIcon icon="android-car"}} About Us
-                            </div>
+                            </a>
                             <a class="item item-icon-left" href="#" data-action="sign-out" data-ion-menu-close>
                                 {{> ionIcon icon="ios-locked"}}
                                 Sign Out

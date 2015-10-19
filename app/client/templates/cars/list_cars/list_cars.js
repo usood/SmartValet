@@ -8,18 +8,15 @@ Template.ListCars.events({});
 /*****************************************************************************/
 Template.ListCars.helpers({
     cars: function () {
-        return Cars.find();
+        return Cars.find({});
     }
 });
 
-/*****************************************************************************/
-/* ListCars: Lifecycle Hooks */
-/*****************************************************************************/
-Template.ListCars.onCreated(function () {
+Template.ListCars.created = function () {
     this.autorun(function () {
         this.subscription = Meteor.subscribe('cars');
     }.bind(this));
-});
+};
 
 Template.ListCars.onRendered(function () {
     this.autorun(function () {
