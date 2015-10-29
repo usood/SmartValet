@@ -4,30 +4,30 @@ Template.LayoutPlain.helpers({
     }
 });
 
+
 Template.LayoutSidebar.events({
     'click [data-action=profile]': function (event, template) {
         var userId = Meteor.userId();
         Router.go('/profile/' + userId);
     },
     'click [data-action=history]': function (event, template) {
-        var userId = Meteor.userId();
-        Router.go('/history/' + userId);
+        Router.go('/history');
     },
     'click [data-action=deals]': function (event, template) {
-        var userId = Meteor.userId();
-        Router.go('/deals/' + userId);
+        Router.go('/deals');
     },
     'click [data-action=help]': function (event, template) {
-        var userId = Meteor.userId();
-        Router.go('/help/' + userId);
+        Router.go('/help');
     },
     'click [data-action=about-us]': function (event, template) {
-        var userId = Meteor.userId();
-        Router.go('/about-us/' + userId);
+        Router.go('/about-us');
+    },
+    'click [data-action=home]': function (event, template) {
+        Router.go('/home');
     },
     'click [data-action=sign-out]': function (event, template) {
         Meteor.logout(function () {
-            Router.go('/');
+            Router.go('/login');
         });
     }
 
