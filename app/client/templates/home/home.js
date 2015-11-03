@@ -29,6 +29,27 @@ Template.Home.events({
                 IonPopup.close();
             }
         });
+    },
+    'click [data-action="locate"]': function (event, template) {
+        var marker;
+        GoogleMaps.ready('map', function (map) {
+            var latLng = Geolocation.latLng();
+            if (!marker) {
+
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(latLng.lat, latLng.lng),
+                    map: map.instance,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP
+                });
+            }
+            // The marker already exists, so we'll just change its position.
+            else {
+                marker.setPosition(latLng);
+            }
+            map.instance.setCenter(marker.getPosition());
+            map.instance.setZoom(MAP_ZOOM);
+        });
     }
 });
 
@@ -64,65 +85,31 @@ Template.Home.onCreated(function () {
         var marker;
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
-        //map.instance.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        map.instance.addListener('bounds_changed', function () {
-            searchBox.setBounds(map.instance.getBounds());
-        });
-        searchBox.addListener('places_changed', function () {
-            var places = searchBox.getPlaces();
-
-            if (places.length == 0) {
-                return;
-            }
-
-            markers = [];
-            // Clear out the old markers.
-            markers.forEach(function (marker) {
-                marker.setMap(null);
-            });
-            // For each place, get the icon, name and location.
-            var bounds = new google.maps.LatLngBounds();
-            places.forEach(function (place) {
-                var icon = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
-
-                // Create a marker for each place.
-                markers.push(new google.maps.Marker({
-                    map: map.instance,
-                    icon: icon,
-                    title: place.name,
-                    position: place.geometry.location
-                }));
-
-                if (place.geometry.viewport) {
-                    // Only geocodes have viewport.
-                    bounds.union(place.geometry.viewport);
-                } else {
-                    bounds.extend(place.geometry.location);
-                }
-            });
-            map.fitBounds(bounds);
-        });
         // Create and move the marker when latLng changes.
         self.autorun(function () {
             var latLng = Geolocation.latLng();
             if (!latLng)
                 return;
-
+            var currentLocationMarker = {
+                name: "Current Location",
+                latitude: latLng.lat,
+                longitude: latLng.lng
+            };
+            var markers = Venues.find().fetch();
+            markers.push(currentLocationMarker);
             // If the marker doesn't yet exist, create it.
             if (!marker) {
-
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(latLng.lat, latLng.lng),
-                    map: map.instance,
-                    draggable: true,
-                    animation: google.maps.Animation.DROP
-                });
+                for (var i = 0; i < markers.length; i++) {
+                    var image = 'iphone.png';
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(markers[i].latitude, markers[i].longitude),
+                        map: map.instance,
+                        draggable: true,
+                        animation: google.maps.Animation.DROP,
+                        icon: image,
+                        title: markers[i].name
+                    });
+                }
             }
             // The marker already exists, so we'll just change its position.
             else {

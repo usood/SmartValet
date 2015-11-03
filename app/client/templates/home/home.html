@@ -11,17 +11,15 @@
     {{#contentFor "headerTitle"}}
         <h1 class="title">SMART VALET</h1>
     {{/contentFor}}
-    {{#contentFor "headerButtonRight"}}
-        <button class="button button-clear pull-right">
-            {{> ionIcon icon='navigate'}}
-        </button>
-    {{/contentFor}}
     {{#ionView}}
         {{#ionContent}}
             <div class="item item-input-inset">
                 <label class="item-input-wrapper">
                     {{> ionIcon icon="ios-search" class="placeholder-icon"}}
                     <input id="pac-input" type="text" placeholder="Enter your location" value="{{searchQuery}}">
+                    <button class="button button-clear pull-right" data-action="locate">
+                        {{> ionIcon icon='pinpoint'}}
+                    </button>
                 </label>
             </div>
             <div class="map-container">

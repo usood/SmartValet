@@ -1,14 +1,17 @@
+//Configure Routers
 Router.configure({
     layoutTemplate: 'LayoutSidebar',
     loadingTemplate: 'Loading',
     notFoundTemplate: 'NotFound'
 });
 
+//Configure Reroute path after login
 AccountsTemplates.configure({
     homeRoutePath: '/home',
-    redirectTimeout: 4000,
+    redirectTimeout: 4000
 });
 
+//Route for walkthrough
 Router.route('/', {
     name: 'intro',
     controller: 'IntroController',
@@ -16,6 +19,7 @@ Router.route('/', {
     where: 'client'
 });
 
+//Route for login
 Router.route('/login', {
     name: 'login',
     controller: 'LoginController',
@@ -23,6 +27,7 @@ Router.route('/login', {
     where: 'client'
 });
 
+//Route for home page (Bring My Car)
 Router.route('/home', {
     name: 'home',
     controller: 'HomeController',
@@ -30,6 +35,7 @@ Router.route('/home', {
     where: 'client'
 });
 
+//Route for profile page
 Router.route('/profile/:_id', {
     name: 'profile',
     controller: 'ProfileController',
@@ -37,6 +43,7 @@ Router.route('/profile/:_id', {
     where: 'client'
 });
 
+//Route for list of cars
 Router.route('/cars', {
     name: 'carsList',
     controller: 'CarsController',
@@ -44,6 +51,7 @@ Router.route('/cars', {
     where: 'client'
 });
 
+//Route for list of venues
 Router.route('/cars/add', {
     name: 'addCar',
     controller: 'CarsController',
@@ -51,6 +59,7 @@ Router.route('/cars/add', {
     where: 'client'
 });
 
+//Route for editing your car information
 Router.route('/cars/:_id', {
     name: 'editCar',
     controller: 'CarsController',
@@ -58,6 +67,7 @@ Router.route('/cars/:_id', {
     where: 'client'
 });
 
+//Route for history of transactions (venues)
 Router.route('/history', {
     name: 'history',
     controller: 'HistoryController',
@@ -65,6 +75,7 @@ Router.route('/history', {
     where: 'client'
 });
 
+//Route for deals available
 Router.route('/deals', {
     name: 'deals',
     controller: 'DealsController',
@@ -72,6 +83,7 @@ Router.route('/deals', {
     where: 'client'
 });
 
+//Route to get help from support team
 Router.route('/help', {
     name: 'help',
     controller: 'HelpController',
@@ -79,7 +91,8 @@ Router.route('/help', {
     where: 'client'
 });
 
-Router.route('/about', {
+//Route which explains our application
+Router.route('/about-us', {
     name: 'aboutUs',
     controller: 'AboutController',
     action: 'action',
